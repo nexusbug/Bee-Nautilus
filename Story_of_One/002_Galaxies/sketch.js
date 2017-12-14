@@ -244,5 +244,12 @@ function calcCanvasSize() {
 function windowResized() {
   calcCanvasSize();
   resizeCanvas(cW, cH);
-
 }
+
+/*
+References
+
+Attached pdf document
+
+https://arxiv.org/pdf/0908.0892.pdf
+*/
