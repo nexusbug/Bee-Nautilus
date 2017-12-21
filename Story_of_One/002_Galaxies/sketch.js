@@ -31,7 +31,7 @@ function setup() {
   calcCanvasSize();
   cnv = createCanvas(cW, cH);
 
-  space = new Space();
+  space = new Space(800);
 
   mwArm1 = new Galaxy(0.5, 0.5, 4, 30, 0.03, 0.9, 120);
   mwArm2 = new Galaxy(0.5, 0.5, 4, 20, 0.03, 0.9, 120);
@@ -146,10 +146,10 @@ class Galaxy {
 
   disp() {
 
-    // let arrcount;
-    // let arr1 = [];
-    // let arr2 = [];
-    // let v;
+    let arrcount;
+    let arr1 = [];
+    let arr2 = [];
+    let v;
 
     let colors = [2, 50, 195, 232, 278];
 
@@ -163,8 +163,8 @@ class Galaxy {
       let y = this.r * -sin(angle);
 
       vertex(x, y);
-      // v = createVector(x, y);
-      // arr1.push(v);
+      v = createVector(x, y);
+      arr1.push(v);
     }
     endShape();
 
@@ -177,42 +177,45 @@ class Galaxy {
       let x = this.r * cos(angle);
       let y = this.r * -sin(-angle);
 
-      // arrcount = floor((angle * 100) - 3);
+      arrcount = floor((angle * 100) - 3);
 
       vertex(x, y);
-      // v = createVector(x, y);
-      // arr2.push(v);
+      v = createVector(x, y);
+      arr2.push(v);
     }
     endShape();
 
-    // Formula for putting stars around arms
-    // cancelled (performance-wise)
+    // Formula for adding solar systems around arms
 
-    // for (let i = 0; i < arrcount; i++) {
-    //   strokeWeight(1);
-    //   stroke(random(colors), 78, 80);
-    //   fill(random(colors), 78, 80);
-    //   ellipse(arr1[i].x + random(-20, 20), arr1[i].y + random(-20, 20), random(0, 0.4));
-    //   ellipse(arr2[i].x + random(-20, 20), arr2[i].y + random(-20, 20), random(0, 0.4));
-    // }
+    for (let i = 0; i < arrcount; i++) {
+      strokeWeight(1);
+      stroke(random(colors), 78, 80);
+      fill(random(colors), 78, 80);
+      ellipse(arr1[i].x + random(-20, 20), arr1[i].y + random(-20, 20), random(1, 5));
+      ellipse(arr2[i].x + random(-20, 20), arr2[i].y + random(-20, 20), random(1, 5));
+      i += 60;
+    }
 
   }
 
 }
 
 class Space {
-  constructor() {
-    this.xp = width / 2;
-    this.yp = height / 2;
+
+  constructor(count) {
+    this.xp = cW / 2;
+    this.yp = cH / 2;
+
+    this.count = count;
   }
 
   stars() {
     noStroke();
     randomSeed(4);
-    for (let i = 0; i < 300; i++) {
-      this.xp = random(cW + 200);
-      this.yp = random(cH + 200);
-      fill(random(360), 85, 100);
+    for (let i = 0; i < this.count; i++) {
+      this.xp = random(-150, cW + 150);
+      this.yp = random(-150, cW + 150);
+      fill(random(360), 0, 100);
       ellipse(this.xp, this.yp, 2);
     }
   }
