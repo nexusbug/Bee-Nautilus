@@ -18,7 +18,7 @@ function setup() {
   cnv = createCanvas(cW, cH);
 
   for (let i = 0; i < 200; i++) {
-    stars.push(new Field(25));
+    stars.push(new Field(8));
   }
 }
 
@@ -73,8 +73,8 @@ class Field {
 
   //cumulative increment from center to sides
   move() {
-    this.x = this.x + (this.sx / cW / 2) * this.speed;
-    this.y = this.y + (this.sy / cH / 2) * this.speed;
+    this.x = this.x + (this.sx / 300) * this.speed;
+    this.y = this.y + (this.sy / 300) * this.speed;
   }
 
   // calculates diameter according to the distance to center
