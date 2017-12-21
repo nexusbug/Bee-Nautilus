@@ -131,7 +131,7 @@ class Space {
     this.count = count;
   }
 
-  stars(s) {
+  stars() {
     noStroke();
     randomSeed(4);
     for (let i = 0; i < this.count; i++) {
