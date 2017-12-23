@@ -4,6 +4,8 @@ http://nexusbug.com/
 STORY of ONE
 
 EP 000: Template
+
+SCALE = pow(10, x) meters
 */
 
 let wW, wH, cW, cH;
