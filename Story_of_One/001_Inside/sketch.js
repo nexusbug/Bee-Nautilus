@@ -4,6 +4,8 @@ http://nexusbug.com/
 STORY of ONE
 
 EP 001: Inside
+
+SCALE = pow(10, 27) meters
 */
 
 let wW, wH, cW, cH;
