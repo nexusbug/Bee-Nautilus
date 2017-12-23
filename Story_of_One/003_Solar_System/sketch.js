@@ -4,6 +4,8 @@ http://nexusbug.com/
 STORY of ONE
 
 EP 003: Solar System
+
+SCALE = pow(10, 13) meters
 */
 
 let wW, wH, cW, cH;
