@@ -4,6 +4,8 @@ http://nexusbug.com/
 STORY of ONE
 
 EP 002: Galaxies
+
+SCALE = pow(10, 21) meters
 */
 
 let wW, wH, cW, cH;
